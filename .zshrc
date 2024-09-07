@@ -120,9 +120,9 @@ fpath=($ZSH_CUSTOM/loadex-zsh-config/completions/ $fpath);
 
 
 # # Example Sources without oh-my-zsh, just they're still in the oh-my-zsh directory, but it's not enabled if you comment the source out up there ^^^
-source /Users/andrewhessler/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /Users/andrewhessler/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source /Users/andrewhessler/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # echo "sourced zsh plugins"
 # source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $ZSH_CUSTOM/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
@@ -152,6 +152,7 @@ alias tkt='tmux kill-session -t'
 alias tr='tmux rename-session'
 alias tn='tmux new -s'
 ###
+alias ls='ls --color'
 
 alias dockerclean='~/Development/scripts/dockerclean.sh'
 alias myip="curl checkip.amazonaws.com"
@@ -172,7 +173,7 @@ alias rf="rustfmt ./**/*.rs"
 
 # echo "nvm"
 # # pnpm
-# export PNPM_HOME="/Users/andrewhessler/Library/pnpm"
+# export PNPM_HOME="$HOME/Library/pnpm"
 # case ":$PATH:" in
 #   *":$PNPM_HOME:"*) ;;
 #   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -185,4 +186,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-eval "$(/Users/andrewhessler/.local/bin/mise activate zsh)"
+eval "$($HOME/.local/bin/mise activate zsh)"

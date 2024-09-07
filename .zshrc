@@ -128,6 +128,8 @@ source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.z
 # source $ZSH_CUSTOM/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias js='~/.pscripts/journal-sync.sh'
+
+# Git aliases
 alias gs='git status'
 alias gcp='git cherry-pick'
 alias ga='git add -A'
@@ -141,6 +143,21 @@ alias gpull='git pull origin'
 alias gpush='git push origin'
 alias gpushm='git push origin master'
 alias gpullm='git push origin master'
+
+# yadm aliases
+alias ys='yadm status'
+alias ycp='yadm cherry-pick'
+alias ya='yadm add -u'
+alias yc='yadm commit -m'
+alias yac='yadm add -u && yadm commit -m'
+alias ybranch='yadm branch'
+alias ybranchd='yadm branch -D'
+alias ycheck='yadm checkout'
+alias ycheckn='yadm checkout -b'
+alias ypull='yadm pull origin'
+alias ypush='yadm push origin'
+alias ypushm='yadm push origin master'
+alias ypullm='yadm push origin master'
 
 # tmux aliases
 alias td='tmux detach'

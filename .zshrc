@@ -150,7 +150,7 @@ alias gpullm='git push origin master'
 # yadm aliases
 alias ys='yadm status'
 alias ycp='yadm cherry-pick'
-alias ya='yadm add -u'
+alias ya='yadm add'
 alias yc='yadm commit -m'
 alias yac='yadm add -u && yadm commit -m'
 alias ybranch='yadm branch'

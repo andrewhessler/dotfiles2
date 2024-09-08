@@ -10,6 +10,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/dacfx:$PATH"
 
 # echo "add some stuff to PATH"
+export PATH="/opt/homebrew/opt/avr-gcc@8/:$PATH"
 
 ## ls coloring
 export CLICOLOR=1
@@ -128,6 +129,8 @@ source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.z
 # source $ZSH_CUSTOM/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias js='~/.pscripts/journal-sync.sh'
+alias ds='~/.pscripts/dotfiles-sync.sh'
+
 
 # Git aliases
 alias gs='git status'

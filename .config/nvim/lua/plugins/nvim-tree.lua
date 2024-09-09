@@ -49,7 +49,8 @@ return {
     config = function()
         local nvimtree = require("nvim-tree")
         nvimtree.setup({
-            on_attach = my_on_attach
+            on_attach = my_on_attach,
+            view = { adaptive_size = true }
         })
         local api = require("nvim-tree.api")
 

@@ -6,11 +6,7 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 # # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$HOME/dacfx:$PATH"
-
-# echo "add some stuff to PATH"
-export PATH="/opt/homebrew/opt/avr-gcc@8/:$PATH"
+export PATH=$HOME/bin:/usr/local/bin:$HOME/dacfx:/opt/homebrew/opt/avr-gcc@8/:$PATH
 
 ## ls coloring
 export CLICOLOR=1
@@ -89,8 +85,7 @@ alias ll="ls -alG"
 plugins=(git)
 # echo "added a git plugin"
 
-# # source $ZSH/oh-my-zsh.sh
-fpath=($ZSH_CUSTOM/loadex-zsh-config/completions/ $fpath);
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 # echo "fpath update"
 
 # # User configuration
@@ -173,6 +168,7 @@ alias tr='tmux rename-session'
 alias tn='tmux new -s'
 ###
 alias ls='ls --color'
+alias t='nvim'
 
 alias dockerclean='~/Development/scripts/dockerclean.sh'
 alias myip="curl checkip.amazonaws.com"
@@ -186,24 +182,17 @@ alias y3="echo \"Setting yarn version to 3\" && pushd ~ 1>/dev/null && yarn set 
 alias rf="rustfmt ./**/*.rs"
 # echo "a bunch of aliases"
 
-# # #Same for this as above ^^^
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# echo "nvm"
-# # pnpm
 # export PNPM_HOME="$HOME/Library/pnpm"
 # case ":$PATH:" in
 #   *":$PNPM_HOME:"*) ;;
 #   *) export PATH="$PNPM_HOME:$PATH" ;;
 # esac
-# echo "pnpm"
 # # pnpm end
+
 # # . /opt/homebrew/opt/asdf/libexec/asdf.sh
 source ~/powerlevel10k/powerlevel10k.zsh-theme
-# echo "path and p10k"
 
 # # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-eval "$($HOME/.local/bin/mise activate zsh)"
+eval "$(/Users/andrewhessler/.local/bin/mise activate zsh)"

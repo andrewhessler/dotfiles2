@@ -1,10 +1,10 @@
 return {
-    { "ellisonleao/gruvbox.nvim", opts = {} },
-    { "rose-pine/neovim",         name = "rose-pine" },
-    { "oxfist/night-owl.nvim",    opts = {} },
     {
         "folke/tokyonight.nvim",
         opts = {},
+        dependencies = {
+            { "oxfist/night-owl.nvim", opts = {} },
+        },
         config = function()
             color = color or "night-owl" or "tokyonight"
             vim.cmd.colorscheme(color)

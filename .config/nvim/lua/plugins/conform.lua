@@ -23,6 +23,7 @@ return {
             python = { "isort", "black" },
             javascript = { "prettierd", "prettier", stop_after_first = true },
             typescript = { "prettierd", "prettier", stop_after_first = true },
+            zig = { "zigfmt", stop_after_first = true },
         },
         -- Set default options
         default_format_opts = {

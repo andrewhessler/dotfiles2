@@ -126,7 +126,7 @@ source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.z
 alias js='~/.pscripts/journal-sync.sh'
 alias ds='~/.pscripts/dotfiles-sync.sh'
 alias ss='js && ds'
-
+# 
 # Git aliases
 alias gs='git status'
 alias gcp='git cherry-pick'

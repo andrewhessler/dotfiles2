@@ -169,6 +169,7 @@ alias tn='tmux new -s'
 ###
 alias ls='ls --color'
 alias t='nvim'
+alias t.='nvim .'
 
 alias dockerclean='~/Development/scripts/dockerclean.sh'
 alias myip="curl checkip.amazonaws.com"

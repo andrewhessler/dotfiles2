@@ -166,6 +166,7 @@ alias tk='() {if [ "${TMUX+x}" ]; then tmux kill-session; fi}'
 alias tkt='tmux kill-session -t'
 alias tr='tmux rename-session'
 alias tn='tmux new -s'
+alias ts='tmux switch -t'
 ###
 alias ls='ls --color'
 alias t='nvim'
@@ -181,7 +182,6 @@ alias ghcs="gh copilot suggest"
 alias c="code"
 alias y3="echo \"Setting yarn version to 3\" && pushd ~ 1>/dev/null && yarn set version 3 1>/dev/null && popd 1>/dev/null"
 alias rf="rustfmt ./**/*.rs"
-# echo "a bunch of aliases"
 
 
 # export PNPM_HOME="$HOME/Library/pnpm"

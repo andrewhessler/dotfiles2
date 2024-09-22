@@ -3,6 +3,8 @@ return {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
         dependencies = {
+            'mfussenegger/nvim-dap',
+            'nvim-telescope/telescope-dap.nvim',
             'nvim-lua/plenary.nvim',
             'nvim-telescope/telescope-live-grep-args.nvim',
             "debugloop/telescope-undo.nvim",
@@ -45,6 +47,7 @@ return {
                     }
                 }
             })
+            telescope.load_extension("dap")
             telescope.load_extension("undo")
             telescope.load_extension("live_grep_args")
         end

@@ -2,6 +2,7 @@ return {
     "nvim-neotest/neotest",
     dependencies = {
         "nvim-neotest/nvim-nio",
+        "lawrence-laz/neotest-zig",
         "nvim-lua/plenary.nvim",
         "antoinemadec/FixCursorHold.nvim",
         "nvim-treesitter/nvim-treesitter",
@@ -18,6 +19,11 @@ return {
                         return vim.fn.getcwd()
                     end,
                 }),
+                require('neotest-zig')({
+                    dap = {
+                        adapter = "lldb",
+                    }
+                })
             },
             output = { open_on_run = true },
         })

@@ -16,3 +16,6 @@ size = 12.00
 
 [colors]
 cursor = { text = "CellBackground", cursor = "#CBC3E3"}
+
+[scrolling]
+history = 99999

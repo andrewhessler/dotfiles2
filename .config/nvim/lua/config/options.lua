@@ -14,6 +14,14 @@ vim.o.expandtab = true
 
 vim.o.smartindent = true
 
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldtext = ""
+vim.o.foldcolumn = "0"
+vim.o.foldlevelstart = 1
+vim.o.foldlevel = 99
+vim.o.foldnestmax = 20
+
 vim.o.wrap = false
 
 vim.o.swapfile = false

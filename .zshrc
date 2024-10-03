@@ -158,15 +158,10 @@ alias ypushm='yadm push origin master'
 alias ypullm='yadm push origin master'
 
 # tmux aliases
-alias td='tmux detach'
 alias ta='tmux attach -t'
-alias tls='tmux ls'
 alias tka='tmux kill-session -a && tmux kill-session'
 alias tk='() {if [ "${TMUX+x}" ]; then tmux kill-session; fi}'
-alias tkt='tmux kill-session -t'
-alias tr='tmux rename-session'
 alias tn='tmux new -s'
-alias ts='tmux switch -t'
 ###
 alias ls='ls --color'
 alias t='nvim'

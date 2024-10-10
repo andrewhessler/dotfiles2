@@ -1,11 +1,8 @@
 return {
-    "m4xshen/autoclose.nvim",
-    config = function()
-        require("autoclose").setup({
-            options = {
-                disable_when_touch = true,
-                touch_regex = "[%w(%[{]"
-            }
-        })
-    end
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
 }
+

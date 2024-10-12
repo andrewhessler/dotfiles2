@@ -12,7 +12,7 @@ option_as_alt = "Both"
 
 [font]
 normal = { family = "FiraMono Nerd Font Mono", style = "Regular" }
-size = 12.00
+size = 11.00
 
 [colors]
 cursor = { text = "CellBackground", cursor = "#CBC3E3"}

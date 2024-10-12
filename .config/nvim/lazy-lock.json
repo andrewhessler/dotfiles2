@@ -42,5 +42,6 @@
   "tokyonight.nvim": { "branch": "main", "commit": "2c85fad417170d4572ead7bf9fdd706057bd73d7" },
   "trouble.nvim": { "branch": "main", "commit": "254145ffd528b98eb20be894338e2d5c93fa02c2" },
   "vim-qfedit": { "branch": "master", "commit": "9840120de9e9d6866541f2bcf048ba26a9b16806" },
-  "vscode-js-debug": { "branch": "main", "commit": "f2882f233e82ff901c45cf0cedd93caa84878d52" }
+  "vscode-js-debug": { "branch": "main", "commit": "f2882f233e82ff901c45cf0cedd93caa84878d52" },
+  "which-key.nvim": { "branch": "main", "commit": "8badb359f7ab8711e2575ef75dfe6fbbd87e4821" }
 }

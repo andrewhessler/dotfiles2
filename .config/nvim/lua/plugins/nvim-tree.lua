@@ -51,7 +51,10 @@ return {
             view = { adaptive_size = true },
             update_focused_file = {
                 enable = true
-            }
+            },
+            diagnostics = {
+                enable = true,
+            },
         })
         local api = require("nvim-tree.api")
 

@@ -22,6 +22,17 @@ return {
             vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>')
             vim.keymap.set("n", "<leader>gg", live_grep_args_shortcuts.grep_word_under_cursor)
 
+            local open_with_trouble = require("trouble.sources.telescope").open
+
+            telescope.setup({
+                defaults = {
+                    mappings = {
+                        i = { ["<c-t>"] = open_with_trouble },
+                        n = { ["<c-t>"] = open_with_trouble },
+                    },
+                },
+            })
+
             -- Calling telescope's setup from multiple specs does not hurt, it will happily merge the
             -- configs for us. We won't use data, as everything is in it's own namespace (telescope
             -- defaults, as well as each extension).

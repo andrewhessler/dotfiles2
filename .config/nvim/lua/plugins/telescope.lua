@@ -1,5 +1,8 @@
 return {
     {
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release' },
+    },
+    {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
         dependencies = {
@@ -55,12 +58,19 @@ return {
                         layout_config = {
                             preview_height = 0.8,
                         },
+                    },
+                    fzf = {
+                        fuzzy = true,
+                        override_generic_sorter = true,
+                        override_file_sorter = true,
+                        case_mode = "smart_case",
                     }
                 }
             })
             telescope.load_extension("dap")
             telescope.load_extension("undo")
             telescope.load_extension("live_grep_args")
+            telescope.load_extension("fzf")
         end
     },
 }

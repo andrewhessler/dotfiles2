@@ -4,7 +4,7 @@ return {
     branch = "0.2.x",
     config = function()
       require("telescope").load_extension("smart_open")
-      vim.keymap.set('n', '<leader>n', '<cmd>Telescope smart_open<cr>')
+      vim.keymap.set('n', '<C-f>', '<cmd>Telescope smart_open<cr>')
     end,
     dependencies = {
       "kkharji/sqlite.lua",
@@ -31,12 +31,12 @@ return {
       local lga_actions = require("telescope-live-grep-args.actions")
       local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
 
-      vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-      vim.keymap.set('n', '<C-f>', builtin.git_files, {})
-      vim.keymap.set('n', '<leader>fs', builtin.live_grep, {})
+      -- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+      -- vim.keymap.set('n', '<C-f>', builtin.git_files, {})
+      -- vim.keymap.set('n', '<leader>fs', builtin.live_grep, {})
       vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
       vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>')
-      vim.keymap.set("n", "<leader>gg", live_grep_args_shortcuts.grep_word_under_cursor)
+      vim.keymap.set("n", "<leader>ff", live_grep_args_shortcuts.grep_word_under_cursor)
 
       local open_with_trouble = require("trouble.sources.telescope").open
 

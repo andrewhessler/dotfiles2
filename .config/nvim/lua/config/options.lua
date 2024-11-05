@@ -46,5 +46,5 @@ vim.o.cursorline = true
 vim.g.have_nerd_font = true
 
 vim.diagnostic.config {
-    float = { border = "rounded" },
+  float = { border = "rounded" },
 }

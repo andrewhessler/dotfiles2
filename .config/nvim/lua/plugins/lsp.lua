@@ -122,13 +122,17 @@ return {
       })
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'eslint', 'lua_ls', 'zls', 'omnisharp', 'gopls' }, -- 'ts_ls',
+        ensure_installed = { 'eslint', 'ts_ls', 'lua_ls', 'zls', 'omnisharp', 'gopls' }, -- 'ts_ls',
+        automatic_installation = true,
         handlers = {
           -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
           function(server_name)
             require('lspconfig')[server_name].setup({})
           end,
+          ['ts_ls'] = function()
+
+          end
         }
       })
     end

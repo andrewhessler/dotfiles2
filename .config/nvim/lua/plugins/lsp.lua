@@ -119,7 +119,7 @@ return {
       })
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'eslint', 'denols', 'ts_ls', 'lua_ls', 'zls', 'omnisharp', 'gopls' }, -- 'ts_ls',
+        ensure_installed = { 'eslint', 'rust_analyzer', 'ts_ls', 'lua_ls', 'zls', 'omnisharp', 'gopls' }, -- 'ts_ls',
         automatic_installation = true,
         handlers = {
           -- this first function is the "default handler"
@@ -134,13 +134,6 @@ return {
             --    root_dir = lsp.util.root_pattern("package.json"),
             --    single_file_support = false
             --  })
-          end,
-          ['denols'] = function()
-            local lsp = require('lspconfig')
-            lsp.denols.setup({
-              on_attach = on_attach,
-              root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc")
-            })
           end,
         }
       })

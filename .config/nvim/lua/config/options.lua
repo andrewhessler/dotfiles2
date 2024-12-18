@@ -5,7 +5,7 @@ vim.o.showmode = false
 vim.o.mouse = 'a'
 
 vim.o.autowrite = true
--- vim.o.clipboard = "unnamedplus"
+-- vim.o.clipboard = "unnamedplus" -- commented out to allow for separation of registers and OS clipboard
 
 vim.o.tabstop = 2
 vim.o.softtabstop = 2

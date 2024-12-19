@@ -4,7 +4,6 @@ return {
     opts = {},
     dependencies = {
       { "oxfist/night-owl.nvim",  opts = {} },
-      { "rmehri01/onenord.nvim",  opts = {} },
       { "EdenEast/nightfox.nvim", opts = {} },
     },
     config = function()

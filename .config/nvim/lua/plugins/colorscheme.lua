@@ -1,14 +1,16 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    opts = {},
-    dependencies = {
-      { "oxfist/night-owl.nvim",  opts = {} },
-      { "EdenEast/nightfox.nvim", opts = {} },
-    },
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
     config = function()
-      color = color or "night-owl" or "tokyonight"
-      vim.cmd.colorscheme(color)
+      require('catppuccin').setup({
+        flavour = 'mocha',
+        transparent_background = true,
+        no_italic = true,
+      })
+      local color_override = "catppuccin"
+      vim.cmd.colorscheme(color_override)
 
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
       vim.api.nvim_set_hl(0, "CursorLine", { bg = "#23344d" })

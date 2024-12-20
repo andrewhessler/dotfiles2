@@ -41,6 +41,11 @@ return {
           auto_show_delay_ms = 0,
           treesitter_highlighting = true,
           update_delay_ms = 0,
+          window = {
+            min_width = 60,
+            max_width = 120,
+            max_height = 100,
+          }
         }
       }
     },

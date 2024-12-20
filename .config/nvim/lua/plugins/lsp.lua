@@ -1,9 +1,13 @@
 return {
+  -- Used to install LSPs
   {
     'williamboman/mason.nvim',
     lazy = false,
     config = true,
   },
+
+
+  -- Used for live LSP-ish generator while working on nvim config
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files
@@ -15,80 +19,38 @@ return {
       },
     },
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    config = function()
-      require("typescript-tools").setup({
 
-      })
-
-      vim.keymap.set('n', '<leader>tir', '<cmd>TSToolsRemoveUnusedImports<cr>')
-      vim.keymap.set('n', '<leader>tia', '<cmd>TSToolsAddMissingImports<cr>')
-    end
-  },
   -- Autocompletion
   {
-    'hrsh7th/nvim-cmp',
-    event = { 'InsertEnter', 'CmdlineEnter' },
-    dependencies = {
-      { 'L3MON4D3/LuaSnip' },
+    'saghen/blink.cmp',
+    -- optional: provides snippets for the snippet source
+    dependencies = 'rafamadriz/friendly-snippets',
+
+    -- use a release tag to download pre-built binaries
+    version = 'v0.*',
+    -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
+    -- build = 'cargo build --release',
+    -- If you use nix, you can build from source using latest nightly rust with:
+    -- build = 'nix run .#build-plugin',
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = { preset = 'enter', ["<Tab>"] = { "select_next", "fallback" }, ["<S-Tab>"] = { "select_prev", "fallback" }, ["<C-l>"] = { "show" } },
+
+      appearance = {
+        use_nvim_cmp_as_default = false,
+        nerd_font_variant = 'mono'
+      },
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+      },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 200,
+      }
     },
-    config = function()
-      local luasnip = require('luasnip')
-      local cmp = require('cmp')
-
-      cmp.setup({
-        sources = {
-          { name = 'nvim_lsp' },
-        },
-        mapping = cmp.mapping.preset.insert({
-          -- [''] = cmp.mapping.select_prev_item(cmp_select),
-          -- [''] = cmp.mapping.select_next_item(cmp_select),
-          ['<C-l>'] = cmp.mapping.complete(),
-          ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-d>'] = cmp.mapping.scroll_docs(5),
-          ['<CR>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              if luasnip.expandable() then
-                luasnip.expand()
-              else
-                cmp.confirm({
-                  select = true,
-                })
-              end
-            else
-              fallback()
-            end
-          end),
-
-          ["<Tab>"] = cmp.mapping(function(fallback)
-            print(luasnip.locally_jumpable(1))
-            if cmp.visible() then
-              cmp.select_next_item()
-            elseif luasnip.locally_jumpable(1) then
-              luasnip.jump(1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-          ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.locally_jumpable(-1) then
-              luasnip.jump(-1)
-            else
-              fallback()
-            end
-          end, { "i", "s" }),
-        }),
-        snippet = {
-          expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-          end,
-        },
-      })
-    end
+    opts_extend = { "sources.default" }
   },
 
   -- LSP
@@ -97,20 +59,12 @@ return {
     cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      { 'hrsh7th/cmp-nvim-lsp' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
-      { 'j-hui/fidget.nvim',                opts = {} },
+      { 'j-hui/fidget.nvim',                opts = {} }, -- tells me what's loading in the bottom right
     },
     config = function()
       vim.o.signcolumn = 'yes'
-
-      local lspconfig_defaults = require('lspconfig').util.default_config
-      lspconfig_defaults.capabilities = vim.tbl_deep_extend(
-        'force',
-        lspconfig_defaults.capabilities,
-        require('cmp_nvim_lsp').default_capabilities()
-      )
 
       vim.api.nvim_create_autocmd('LspAttach', {
         desc = 'LSP Actions',
@@ -130,7 +84,8 @@ return {
       })
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'eslint', 'rust_analyzer', 'ts_ls', 'lua_ls', 'zls', 'omnisharp', 'gopls' }, -- 'ts_ls',
+        -- vtsls does what typescript-tools does and interacts directly with tsserver rather than going through a slew of APIs? Just prefer LSP over plugin
+        ensure_installed = { 'eslint', 'rust_analyzer', 'vtsls', 'ts_ls', 'lua_ls', 'zls', 'omnisharp', 'gopls' },
         automatic_installation = true,
         handlers = {
           -- this first function is the "default handler"
@@ -139,12 +94,7 @@ return {
             require('lspconfig')[server_name].setup({})
           end,
           ['ts_ls'] = function()
-            --  local lsp = require('lspconfig')
-            --  lsp.ts_ls.setup({
-            --    on_attach = on_attach,
-            --    root_dir = lsp.util.root_pattern("package.json"),
-            --    single_file_support = false
-            --  })
+            -- install this just for tsserver, don't want to use it as LSP
           end,
         }
       })

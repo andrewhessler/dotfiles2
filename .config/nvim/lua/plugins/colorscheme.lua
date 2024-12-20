@@ -1,15 +1,12 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "navarasu/onedark.nvim",
     priority = 1000,
     config = function()
-      require('catppuccin').setup({
-        flavour = 'mocha',
-        transparent_background = true,
-        no_italic = true,
+      require('onedark').setup({
+        transparent = true
       })
-      local color_override = "catppuccin"
+      local color_override = "onedark"
       vim.cmd.colorscheme(color_override)
 
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })

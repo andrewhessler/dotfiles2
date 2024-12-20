@@ -2,11 +2,10 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     -- branch = "canary", -- Use the canary branch if you want to test the latest features but it might be unstable
-    version = "v2.14.1",
+    version = "v3.3.3",
     -- Do not use branch and version together, either use branch or version
     dependencies = {
       { "zbirenbaum/copilot.lua" },
-      { "nvim-telescope/telescope.nvim" }, -- Use telescope for help actions
       { "nvim-lua/plenary.nvim" },
     },
     opts = {
@@ -15,6 +14,12 @@ return {
       error_header = "## Error ",
       auto_follow_cursor = false, -- Don't follow the cursor after getting response
       show_help = false,          -- Show help in virtual text, set to true if that's 1st time using Copilot Chat
+      mappings = {
+        close = {
+          normal = "q",
+          insert = "",
+        },
+      }
     },
     config = function(_, opts)
       local copilot = require("copilot")

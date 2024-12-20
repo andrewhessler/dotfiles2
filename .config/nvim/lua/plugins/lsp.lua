@@ -25,7 +25,7 @@ return {
     'saghen/blink.cmp',
 
     -- use a release tag to download pre-built binaries
-    version = 'v0.*',
+    version = 'v0.7.*',
     -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
     -- build = 'cargo build --release',
     -- If you use nix, you can build from source using latest nightly rust with:
@@ -85,7 +85,7 @@ return {
 
       require('mason-lspconfig').setup({
         -- vtsls does what typescript-tools does and interacts directly with tsserver rather than going through a slew of APIs? Just prefer LSP over plugin
-        ensure_installed = { 'eslint', 'rust_analyzer', 'vtsls', 'ts_ls', 'lua_ls', 'zls', 'omnisharp', 'gopls' },
+        ensure_installed = { 'eslint', 'rust_analyzer', 'vtsls', 'lua_ls', 'zls', 'omnisharp', 'gopls' },
         automatic_installation = true,
         handlers = {
           -- this first function is the "default handler"
@@ -93,9 +93,6 @@ return {
           function(server_name)
             local capabilities = require('blink-cmp').get_lsp_capabilities()
             require('lspconfig')[server_name].setup({ capabilities = capabilities })
-          end,
-          ['ts_ls'] = function()
-            -- install this just for tsserver, don't want to use it as LSP
           end,
         }
       })

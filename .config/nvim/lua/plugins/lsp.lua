@@ -23,8 +23,6 @@ return {
   -- Autocompletion
   {
     'saghen/blink.cmp',
-    -- optional: provides snippets for the snippet source
-    dependencies = 'rafamadriz/friendly-snippets',
 
     -- use a release tag to download pre-built binaries
     version = 'v0.*',
@@ -36,18 +34,14 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      keymap = { preset = 'enter', ["<Tab>"] = { "select_next", "fallback" }, ["<S-Tab>"] = { "select_prev", "fallback" }, ["<C-l>"] = { "show" } },
-
-      appearance = {
-        use_nvim_cmp_as_default = false,
-        nerd_font_variant = 'mono'
-      },
-      sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer' },
-      },
-      documentation = {
-        auto_show = true,
-        auto_show_delay_ms = 200,
+      keymap = { preset = 'enter' },
+      completion = {
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 0,
+          treesitter_highlighting = true,
+          update_delay_ms = 0,
+        }
       }
     },
     opts_extend = { "sources.default" }
@@ -59,6 +53,7 @@ return {
     cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
+      { 'saghen/blink.cmp' },
       { 'williamboman/mason.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
       { 'j-hui/fidget.nvim',                opts = {} }, -- tells me what's loading in the bottom right
@@ -91,7 +86,8 @@ return {
           -- this first function is the "default handler"
           -- it applies to every language server without a "custom handler"
           function(server_name)
-            require('lspconfig')[server_name].setup({})
+            local capabilities = require('blink-cmp').get_lsp_capabilities()
+            require('lspconfig')[server_name].setup({ capabilities = capabilities })
           end,
           ['ts_ls'] = function()
             -- install this just for tsserver, don't want to use it as LSP

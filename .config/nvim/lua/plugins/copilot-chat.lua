@@ -17,7 +17,7 @@ return {
       mappings = {
         close = {
           normal = "q",
-          insert = "",
+          insert = "", -- removing this makes my <C-c> close the <leader>at window
         },
       }
     },

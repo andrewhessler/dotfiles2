@@ -7,6 +7,20 @@ return {
   },
 
 
+  -- Better typescript LSP, bypasses some extra layer, same as vtsls, but more bundled.
+  -- Prefer to use LSP rather than this pulgin, but vtsls was giving me problems.
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    config = function()
+      require("typescript-tools").setup({
+      })
+
+      vim.keymap.set('n', '<leader>tir', '<cmd>TSToolsRemoveUnusedImports<cr>')
+      vim.keymap.set('n', '<leader>tia', '<cmd>TSToolsAddMissingImports<cr>')
+    end
+  },
+
   -- Used for live LSP-ish generator while working on nvim config
   {
     "folke/lazydev.nvim",
@@ -34,7 +48,7 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      keymap = { preset = 'enter' },
+      keymap = { preset = 'super-tab', ['<CR>'] = { 'accept', 'fallback' }, },
       completion = {
         documentation = {
           auto_show = true,
@@ -85,7 +99,7 @@ return {
 
       require('mason-lspconfig').setup({
         -- vtsls does what typescript-tools does and interacts directly with tsserver rather than going through a slew of APIs? Just prefer LSP over plugin
-        ensure_installed = { 'eslint', 'rust_analyzer', 'vtsls', 'lua_ls', 'zls', 'omnisharp', 'gopls' },
+        ensure_installed = { 'eslint', 'rust_analyzer', 'ts_ls', 'lua_ls', 'zls', 'omnisharp', 'gopls' }, -- vtsls has been annoying, going back to typescript_tools
         automatic_installation = true,
         handlers = {
           -- this first function is the "default handler"
@@ -94,6 +108,9 @@ return {
             local capabilities = require('blink-cmp').get_lsp_capabilities()
             require('lspconfig')[server_name].setup({ capabilities = capabilities })
           end,
+          ['ts_ls'] = function()
+            -- install this just for tsserver or whatever, don't want to use it as lsp, use typescript_tools instead
+          end
         }
       })
     end

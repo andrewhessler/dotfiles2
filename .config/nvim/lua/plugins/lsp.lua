@@ -48,7 +48,7 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      keymap = { preset = 'super-tab', ['<CR>'] = { 'accept', 'fallback' }, },
+      keymap = { preset = 'super-tab', ['<CR>'] = { 'accept', 'fallback' }, ['<C-l>'] = { 'show' } },
       completion = {
         documentation = {
           auto_show = true,

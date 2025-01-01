@@ -20,7 +20,6 @@ return {
       vim.keymap.set('n', '<leader>tia', '<cmd>TSToolsAddMissingImports<cr>')
     end
   },
-
   -- Used for live LSP-ish generator while working on nvim config
   {
     "folke/lazydev.nvim",

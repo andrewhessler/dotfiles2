@@ -31,3 +31,5 @@ vim.keymap.set("v", "<leader>d", "\"+d")
 
 vim.keymap.set("n", "<leader>i", ":lua vim.diagnostic.open_float()<cr>")
 vim.keymap.set("n", "<leader>rf", ":e!<cr>")
+
+vim.keymap.set("n", "<leader>n", ":enew<cr>")

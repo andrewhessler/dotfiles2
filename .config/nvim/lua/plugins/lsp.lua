@@ -110,6 +110,19 @@ return {
           end,
           ['ts_ls'] = function()
             -- install this just for tsserver or whatever, don't want to use it as lsp, use typescript_tools instead
+          end,
+          ['helm_ls'] = function()
+            local lspconfig = require('lspconfig')
+
+            lspconfig.helm_ls.setup {
+              settings = {
+                ['helm-ls'] = {
+                  yamlls = {
+                    path = "yaml-language-server",
+                  }
+                }
+              }
+            }
           end
         }
       })

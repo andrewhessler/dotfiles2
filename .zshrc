@@ -7,6 +7,7 @@
 # fi
 # # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/dacfx:/opt/homebrew/opt/avr-gcc@8/:$PATH
+export CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/"
 
 ## ls coloring
 export CLICOLOR=1

@@ -53,6 +53,10 @@ return {
     config = function()
       local nvimtree = require("nvim-tree")
       nvimtree.setup({
+        git = {
+          enable = false,
+          timeout = 400
+        },
         on_attach = my_on_attach,
         view = { adaptive_size = true },
         update_focused_file = {

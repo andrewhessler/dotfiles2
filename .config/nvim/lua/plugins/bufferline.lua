@@ -16,7 +16,8 @@ return {
     map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', options)
     map('n', '<A-.>', '<Cmd>BufferNext<CR>', options)
     map('n', '<A-c>', '<Cmd>BufferClose<CR>', options)
-    map('n', '<C-p>', '<Cmd>BufferPick<CR>', options)
+    -- harpoon uses this now
+    -- map('n', '<C-p>', '<Cmd>BufferPick<CR>', options)
   end
 
 }

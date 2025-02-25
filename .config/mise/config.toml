@@ -9,7 +9,6 @@ show_tools = true
 [tools]
 bun = "latest"
 node = "22"
-neovim = "latest"
 python = "latest"
 ripgrep = "13"
 yadm = "latest"
@@ -20,3 +19,4 @@ lua = "latest"
 deno = "latest"
 go = "latest"
 dotnet = "8"
+neovim = "0.10.4"

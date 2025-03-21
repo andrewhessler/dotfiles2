@@ -129,6 +129,8 @@ alias ds='~/.pscripts/dotfiles-sync.sh'
 alias ss='js && ds'
 # 
 # Git aliases
+alias gt='git tag'
+alias gtpush='git push origin --tags'
 alias gs='git status'
 alias gcp='git cherry-pick'
 alias ga='git add -A'
@@ -137,11 +139,8 @@ alias gac='git add -A && git commit -m'
 alias gbranch='git branch'
 alias gbranchd='git branch -D'
 alias gcheck='git checkout'
-alias gcheckn='git checkout -b'
 alias gpull='git pull origin'
 alias gpush='git push origin'
-alias gpushm='git push origin master'
-alias gpullm='git push origin master'
 
 # yadm aliases
 alias ys='yadm status'

@@ -99,7 +99,7 @@ return {
 
       require('mason-lspconfig').setup({
         -- vtsls does what typescript-tools does and interacts directly with tsserver rather than going through a slew of APIs? Just prefer LSP over plugin
-        ensure_installed = { 'eslint', 'rust_analyzer', 'ts_ls', 'typos_lsp', 'lua_ls', 'zls', 'omnisharp' },
+        ensure_installed = { 'eslint', 'rust_analyzer', 'ts_ls', 'typos_lsp', 'lua_ls', 'zls', 'omnisharp', 'cssmodules_ls', 'cssls' },
         automatic_installation = true,
         handlers = {
           -- this first function is the "default handler"

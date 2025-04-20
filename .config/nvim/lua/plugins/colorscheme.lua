@@ -1,5 +1,11 @@
 return {
   {
+    "catgoose/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = { -- set to setup table
+    },
+  },
+  {
     "navarasu/onedark.nvim",
     priority = 1000,
     config = function()

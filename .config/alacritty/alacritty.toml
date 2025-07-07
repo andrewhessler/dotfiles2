@@ -1,6 +1,5 @@
-
 [window]
-decorations="None"
+decorations="Buttonless"
 opacity = 1.00
 # opacity = 0.95
 startup_mode = "Maximized"

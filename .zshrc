@@ -206,3 +206,6 @@ if [ -f '/home/heffree/staging/google-cloud-sdk/path.zsh.inc' ]; then . '/home/h
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/heffree/staging/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/heffree/staging/google-cloud-sdk/completion.zsh.inc'; fi
+
+# opencode
+export PATH=/Users/andrewhessler/.opencode/bin:$PATH

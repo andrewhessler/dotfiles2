@@ -209,3 +209,6 @@ if [ -f '/home/heffree/staging/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 
 # opencode
 export PATH=/Users/andrewhessler/.opencode/bin:$PATH
+
+# opencode
+export PATH=/home/heffree/.opencode/bin:$PATH

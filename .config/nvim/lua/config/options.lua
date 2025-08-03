@@ -52,7 +52,7 @@ vim.diagnostic.config({
   underline = true,
   update_in_insert = false, -- false so diags are updated on InsertLeave
   virtual_text = { severity = { min = "INFO", max = "ERROR" } },
-  virtual_lines = { current_line = true, severity = { min = "ERROR" } },
+  virtual_lines = false,
   severity_sort = true,
   float = {
     focusable = false,

@@ -7,6 +7,7 @@
 # fi
 # # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/dacfx:/opt/homebrew/opt/avr-gcc@8/:$PATH
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/"
 
 ## ls coloring
@@ -212,3 +213,7 @@ export PATH=/Users/andrewhessler/.opencode/bin:$PATH
 
 # opencode
 export PATH=/home/heffree/.opencode/bin:$PATH
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

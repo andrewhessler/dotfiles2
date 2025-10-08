@@ -10,6 +10,74 @@ return {
     version = '^6', -- Recommended
     lazy = false,   -- This plugin is already lazy
   },
+  {
+    "mfussenegger/nvim-dap",
+    lazy = true,
+    -- Copied from LazyVim/lua/lazyvim/plugins/extras/dap/core.lua and
+    -- modified.
+    keys = {
+      {
+        "<leader>db",
+        function() require("dap").toggle_breakpoint() end,
+        desc = "Toggle Breakpoint"
+      },
+
+      {
+        "<leader>dc",
+        function() require("dap").continue() end,
+        desc = "Continue"
+      },
+
+      {
+        "<leader>dC",
+        function() require("dap").run_to_cursor() end,
+        desc = "Run to Cursor"
+      },
+
+      {
+        "<leader>dT",
+        function() require("dap").terminate() end,
+        desc = "Terminate"
+      },
+    },
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    ---@type MasonNvimDapSettings
+    opts = {
+      -- This line is essential to making automatic installation work
+      -- :exploding-brain
+      handlers = {},
+      automatic_installation = {
+        -- These will be configured by separate plugins.
+        exclude = {
+          "delve",
+          "python",
+        },
+      },
+      -- DAP servers: Mason will be invoked to install these if necessary.
+      ensure_installed = {
+        "bash",
+        "codelldb",
+        "php",
+        "python",
+      },
+    },
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "williamboman/mason.nvim",
+    },
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    event = "VimEnter",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    config = function()
+      require("nvim-dap-virtual-text").setup({})
+    end,
+  },
 
 
   -- Better typescript LSP, bypasses some extra layer, same as vtsls, but more bundled.
@@ -104,7 +172,7 @@ return {
 
       require('mason-lspconfig').setup({
         -- vtsls does what typescript-tools does and interacts directly with tsserver rather than going through a slew of APIs? Just prefer LSP over plugin
-        ensure_installed = { 'eslint', 'rust_analyzer', 'ts_ls', 'typos_lsp', 'lua_ls', 'zls', 'omnisharp', 'cssmodules_ls', 'cssls', 'tailwindcss' },
+        ensure_installed = { 'eslint', 'ts_ls', 'typos_lsp', 'lua_ls', 'zls', 'omnisharp', 'cssmodules_ls', 'cssls', 'tailwindcss' },
         automatic_installation = true,
         handlers = {
           -- this first function is the "default handler"
@@ -117,7 +185,7 @@ return {
             -- install this just for tsserver or whatever, don't want to use it as lsp, use typescript_tools instead
           end,
           ['rust_analyzer'] = function()
-
+            -- use rustaceanvim instead
           end,
           ['helm_ls'] = function()
             local lspconfig = require('lspconfig')

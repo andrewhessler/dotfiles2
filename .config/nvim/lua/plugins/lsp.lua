@@ -5,6 +5,11 @@ return {
     lazy = false,
     config = true,
   },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^6', -- Recommended
+    lazy = false,   -- This plugin is already lazy
+  },
 
 
   -- Better typescript LSP, bypasses some extra layer, same as vtsls, but more bundled.
@@ -110,6 +115,9 @@ return {
           end,
           ['ts_ls'] = function()
             -- install this just for tsserver or whatever, don't want to use it as lsp, use typescript_tools instead
+          end,
+          ['rust_analyzer'] = function()
+
           end,
           ['helm_ls'] = function()
             local lspconfig = require('lspconfig')

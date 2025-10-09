@@ -36,7 +36,8 @@ return {
           dap = {
             adapter = "lldb",
           }
-        })
+        }),
+        require('rustaceanvim.neotest')
       },
       output = { open_on_run = true },
     })

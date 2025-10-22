@@ -10,6 +10,9 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/dacfx:/opt/homebrew/opt/avr-gcc@8/:$P
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/"
 
+if [[ $(uname) == "Darwin" ]]; then
+  export BROWSER="open -a Arc"
+
 ## ls coloring
 export CLICOLOR=1
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd

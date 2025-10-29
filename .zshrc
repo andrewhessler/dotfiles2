@@ -131,7 +131,7 @@ source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.z
 # source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias js='~/.pscripts/journal-sync.sh'
 alias ds='~/.pscripts/dotfiles-sync.sh'
-alias ss='js; ds; newsboat -x print-unread;'
+alias ss='js; ds; newsboat -x reload; newsboat -x print-unread;'
 # 
 # Git aliases
 alias gt='git tag'

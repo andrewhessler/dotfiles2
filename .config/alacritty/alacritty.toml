@@ -44,3 +44,6 @@ white   = '#ffffff'
 
 [scrolling]
 history = 99999
+
+[hints]
+enabled = []

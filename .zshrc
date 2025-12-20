@@ -14,6 +14,9 @@ export CPPFLAGS="-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/inclu
 if [[ $(uname) == "Darwin" ]]; then
   export BROWSER="open -a Arc";
 fi
+if [ "$(uname -s)" = "Linux" ]; then
+  export BROWSER="google-chrome";
+fi
 
 ## ls coloring
 export CLICOLOR=1

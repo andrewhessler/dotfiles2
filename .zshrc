@@ -126,7 +126,7 @@ source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 
 # # Example Sources without oh-my-zsh, just they're still in the oh-my-zsh directory, but it's not enabled if you comment the source out up there ^^^
-# source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # echo "sourced zsh plugins"
